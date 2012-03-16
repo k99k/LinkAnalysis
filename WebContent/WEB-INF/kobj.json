@@ -1,0 +1,31 @@
+{
+	"kobjs":{
+		"LinkLog":{
+			"dao":{
+				"tableName":"LinkLog",
+				"newDaoName":"LinkLogDao",
+				"daoName":"mongoDao",
+				"props":{
+					"id":1,"type":"single"
+				}
+			},
+			"indexes":[
+				{
+					"col":"createTime","unique":false,"asc":false,"type":"type","intro":"createTime"
+				}
+			],
+			"columns":[
+				{
+					"col":"linkId","def":0,"len":0,"required":true,"type":1,"intro":"link id"
+				},
+				{
+					"col":"ip","def":"","len":0,"required":false,"type":0,"intro":"ip"
+				},
+				{
+					"col":"ua","def":"","len":0,"required":false,"type":0,"intro":"user agent"
+				}
+			],
+			"intro":"转向的日志"
+		}
+	}
+}

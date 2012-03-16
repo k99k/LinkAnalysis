@@ -1,0 +1,74 @@
+{
+	"version":1,
+	"updates":{
+		"2012-3-10":"始建此文件"
+	},
+	"info":"注意数据库需要增加以下index:",
+	"classPath": "f:/works/workspace_keel/LinkAnalysis/WebContent/WEB-INF/classes/",
+	"iniPath": "f:/works/workspace_keel/LinkAnalysis/WebContent/WEB-INF/",
+	"dataSources":{
+		"mongodb_local":{
+			"_dbType":"mongodb",
+			"ip":"127.0.0.1",
+			"port":27017,
+			"dbName":"la",
+			"user":"keel",
+			"pwd":"jsGame_1810",
+			"maxWaitTime":5000,
+			"connectionsPerHost":20
+		}
+	},
+	"daos":{
+		"mongoDao":{
+			"_class":"com.k99k.khunter.MongoDao",
+			"_dataSource":"mongodb_local",
+			"dbType":"mongodb",
+			"type":"common",
+			"tableName":"*",
+			"id":1
+		}	
+	},
+	"tasks":{
+		"taskMapInitSize":50000,
+		"exePool":{
+			"corePoolSize":10,
+			"maximumPoolSize":200,
+			"keepAliveTime":30000,
+			"queueSize":150
+		},
+		"ratePoolSize":5,
+		"scheduledPoolSize":10
+	},
+	"actions":[
+		{
+			"_actName":"console",	
+			"_class":"com.k99k.khunter.acts.ConsoleAction",
+			"admin":[
+				{"name":"keel","pwd":"6667441","level":1,"state":1,"info":"202.102.113.*"},
+				{"name":"sike","pwd":"123456","level":2,"state":1,"info":"202.102.40.*"}
+			]
+		},
+		{
+			"_actName":"go",
+			"_class":"com.k99k.linkAnalysis.LinkTo",
+			"linksIni":"F:/works/workspace_keel/LinkAnalysis/WebContent/WEB-INF/links.json",
+			"linksSize":100,
+			"cookieTime":12960000
+		},
+		{
+			"_actName":"logTask",
+			"_class":"com.k99k.linkAnalysis.LogTask"
+		},
+		{
+			"_actName":"end",
+			"_class":"com.k99k.linkAnalysis.End"
+		}
+	],
+	"io":{
+		"emails":{
+			"server":"202.102.111.111"
+		}
+	}
+
+
+}
